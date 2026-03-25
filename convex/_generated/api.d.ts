@@ -8,17 +8,18 @@
  * @module
  */
 
-import type {
-    ApiFromModules,
-    FilterApi,
-    FunctionReference,
-} from "convex/server";
 import type * as board from "../board.js";
 import type * as boards from "../boards.js";
 
+import type {
+  ApiFromModules,
+  FilterApi,
+  FunctionReference,
+} from "convex/server";
+
 declare const fullApi: ApiFromModules<{
-    board: typeof board;
-    boards: typeof boards;
+  board: typeof board;
+  boards: typeof boards;
 }>;
 
 /**
@@ -30,8 +31,8 @@ declare const fullApi: ApiFromModules<{
  * ```
  */
 export declare const api: FilterApi<
-    typeof fullApi,
-    FunctionReference<any, "public">
+  typeof fullApi,
+  FunctionReference<any, "public">
 >;
 
 /**
@@ -43,8 +44,8 @@ export declare const api: FilterApi<
  * ```
  */
 export declare const internal: FilterApi<
-    typeof fullApi,
-    FunctionReference<any, "internal">
+  typeof fullApi,
+  FunctionReference<any, "internal">
 >;
 
 export declare const components: {};

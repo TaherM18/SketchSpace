@@ -19,19 +19,20 @@ export const create = mutation({
   args: {
     orgId: v.string(),
     title: v.string(),
+    authorName: v.string(),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) throw new Error("Unauthorized.");
 
-    const randomImage = images[Math.floor(Math.random() * images.length)];
+    const randomImage = images[Math.floor(Math.random() * 10)];
 
     const board = await ctx.db.insert("boards", {
       title: args.title,
       orgId: args.orgId,
       authorId: identity.subject,
-      authorName: identity.name!,
+      authorName: args.authorName,
       imageUrl: randomImage,
     });
 

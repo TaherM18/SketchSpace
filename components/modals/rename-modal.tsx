@@ -25,6 +25,7 @@ export const RenameModal = () => {
   const [title, setTitle] = useState(initialValues.title);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTitle(initialValues.title);
   }, [initialValues.title]);
 
@@ -63,7 +64,12 @@ export const RenameModal = () => {
           />
 
           <DialogFooter>
-            <DialogClose render={<Button variant="outline">Cancel</Button>} />
+            <DialogClose asChild>
+              <Button type="button" variant="outline">
+                Cancel
+              </Button>
+            </DialogClose>
+
             <Button disabled={pending} aria-disabled={pending} type="submit">
               Save
             </Button>

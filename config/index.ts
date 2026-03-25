@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Sketch Space",
+  title: "SketchSpace",
   description:
     "Real-time collaboration, versatile canvas, rich media, secure.",
   keywords: [
     "nextjs",
-    "miro",
     "board",
     "draw",
     "convex",
