@@ -61,7 +61,7 @@ export const BoardCard = ({
 
   return (
     <Link href={`/board/${id}`}>
-      <div className="group aspect-[100/127] border rounded-lg flex flex-col justify-between overflow-hidden">
+      <div className="group aspect-100/127 border rounded-lg flex flex-col justify-between overflow-hidden">
         <div className="relative flex-1 bg-amber-50">
           <Image src={imageUrl} alt={title} fill className="object-fit" />
           <Overlay />
@@ -87,7 +87,7 @@ export const BoardCard = ({
 
 BoardCard.Skeleton = function BoardCardSkeleton() {
   return (
-    <div className="aspect-[100/127] rounded-lg flex overflow-hidden">
+    <div className="aspect-100/127 rounded-lg flex overflow-hidden">
       <Skeleton className="h-full w-full" />
     </div>
   );

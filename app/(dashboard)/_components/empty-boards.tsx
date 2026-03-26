@@ -1,6 +1,6 @@
 "use client";
 
-import { useOrganization } from "@clerk/nextjs";
+import { useOrganization, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -13,6 +13,7 @@ export const EmptyBoards = () => {
   const router = useRouter();
   const { mutate, pending } = useApiMutation(api.board.create);
   const { organization } = useOrganization();
+  const { user } = useUser();
 
   const onClick = () => {
     if (!organization) return;
@@ -20,6 +21,7 @@ export const EmptyBoards = () => {
     mutate({
       orgId: organization.id,
       title: "Untitled",
+      authorName: user?.fullName
     })
       .then((id) => {
         toast.success("Board created.");
